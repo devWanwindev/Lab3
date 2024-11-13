@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Xml.Serialization;
@@ -7,10 +7,10 @@ using System.Globalization;
 [Serializable]
 public struct toys
 {
-    public string Name;
-    public int Price;
-    public int Minage;
-    public int Maxage;
+    string Name;
+    int Price;
+    int Minage;
+    int Maxage;
     public toys(string name, int price, int minage, int maxage)
     {
         Name = name;
@@ -18,6 +18,13 @@ public struct toys
         Minage = minage;
         Maxage = maxage;
     }
+    public string GetName()
+    {
+        return Name;
+    }
+    public int GetPrice() { return Price; }
+    public int GetMinage() {  return Minage; }
+    public int GetMaxage() {  return Maxage; }
 }
 
 class Files
@@ -89,10 +96,10 @@ class Files
     {
         toys[] toy = new toys[]
         {
-            new toys { Name = "Конструктор", Price = 1500, Minage = 2, Maxage = 5 },
-            new toys { Name = "Кубики", Price = 800, Minage = 1, Maxage = 3 },
-            new toys { Name = "Пазлы", Price = 1200, Minage = 3, Maxage = 6 },
-            new toys { Name = "Лего", Price = 2000, Minage = 5, Maxage = 10 }
+            new toys ("Конструктор", 1500, 2, 5),
+            new toys ("Кубики", 800, 1, 3),
+            new toys ("Кубики", 1200, 3, 6),
+            new toys ("Лего", 2000, 5, 10)
         };
 
         using (FileStream fs = new FileStream("toys.xml", FileMode.Create))
@@ -111,19 +118,21 @@ class Files
         }
         foreach (toys i in toy)
         {
-            if (i.Name == "Конструктор")
+            if (i.GetName() == "Конструктор")
             {
-                Console.WriteLine($"Конструктор предназначен для детей от {i.Minage} до {i.Maxage}");
+                Console.WriteLine($"Конструктор предназначен для детей от {i.GetMinage()} до {i.GetMaxage()}");
             }
         }
     }
+
+    //Задание 6
     public static void zapforsix()
     {
         string input2 = "input6.txt";
         using (FileStream f = new FileStream(input2, FileMode.OpenOrCreate))
         {
             using (StreamWriter ff = new StreamWriter(f))
-            {
+            {  
                 int a = R.Next(10, 30);
                 for (int i = 0; i < a; i++)
                 {
@@ -148,6 +157,8 @@ class Files
             }
         }
     }
+
+    //Задание 7
     public static void zapfor7()
     {
         string input7 = "input7.txt";
@@ -198,6 +209,8 @@ class Files
             Console.WriteLine("\n Первое плюс минимальное: " + (one += min));
         }
     }
+
+    //Задание 8
     public static void eight()
     {
         string input = "input8.txt";
