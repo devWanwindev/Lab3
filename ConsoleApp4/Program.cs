@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ConsoleApp4
 {
@@ -12,26 +12,69 @@ namespace ConsoleApp4
             //ЗАДАНИЕ 1.1
             Console.WriteLine("\nЗАДАНИЕ 1:\n");
 
-
-
-            var diagonalMatrix = new MatrixTasks(4, 4, 0);
-            Console.WriteLine("Матрица, заполненная по диагонали:\n" + diagonalMatrix);
+            Console.WriteLine("Введите n, m: ");
+            string x = Console.ReadLine();
+            string y = Console.ReadLine();
+            if ((int.TryParse(x, out int n)) && (int.TryParse(y, out int m)))
+            {
+                if ((n >= 0) && (m >= 0))
+                {
+                    var diagonalMatrix = new MatrixTasks(n, m, 0);
+                    Console.WriteLine("Матрица, заполненная по диагонали:\n" + diagonalMatrix);
+                }
+                else 
+                { 
+                    Console.WriteLine("Неверные данные"); 
+                }
+            }
+            else
+            {
+                Console.WriteLine("Неверные данные");
+            }
 
 
             //ЗАДАНИЕ 1.2
-            var randomDiagonalMatrix = new MatrixTasks(5, true);
-            Console.WriteLine("Матрица, заполненная случайными числами по диагонали:\n" + randomDiagonalMatrix);
+            Console.WriteLine("\nЗАДАНИЕ 1.2:\n");
+            Console.WriteLine("Введите n: ");
+            x = Console.ReadLine();
+            if ((int.TryParse(x, out int n1)) && (n1 >= 0)){
+                var randomDiagonalMatrix = new MatrixTasks(n1, true);
+                Console.WriteLine("Матрица, заполненная случайными числами по диагонали:\n" + randomDiagonalMatrix);
+            }
+            else
+            {
+                Console.WriteLine("Неверные данные");
+            }
+
+
 
             //ЗАДАНИЕ 1.3
-            var spiralMatrix = new MatrixTasks(5, true, true);
-            Console.WriteLine("Матрица, заполненная по спирали:\n" + spiralMatrix);
+            Console.WriteLine("\nЗАДАНИЕ 1.3:\n");
+            Console.WriteLine("Введите n: ");
+            x = Console.ReadLine();
+            if ((int.TryParse(x, out int n2)) && (n2 >= 0))
+            {
+                var spiralMatrix = new MatrixTasks(n2, true, true);
+                Console.WriteLine("Матрица, заполненная по спирали:\n" + spiralMatrix);
+            }
+            else
+            {
+                Console.WriteLine("Неверные данные");
+            }
 
 
             //ЗАДАНИЕ 2
             Console.WriteLine("\nЗАДАНИЕ 2:\n");
-            var matrix_quad = new MatrixTasks(5, 5, true, 100);
-            Console.WriteLine("Матрица:\n" + matrix_quad);
-            matrix_quad.ColumnCalc();
+            x = Console.ReadLine();
+            if ((int.TryParse(x, out int n3)) && (n3 >= 0)) { 
+                var matrix_quad = new MatrixTasks(n3, n3, true, 100);
+                Console.WriteLine("Матрица:\n" + matrix_quad);
+                matrix_quad.ColumnCalc();
+            }
+            else
+            {
+                Console.WriteLine("Неверные данные");
+            }
 
 
             //ЗАДАНИЕ 3 7*А*(Вт-С)
